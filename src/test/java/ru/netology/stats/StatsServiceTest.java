@@ -1,0 +1,44 @@
+package ru.netology.stats;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.provider.CsvFileSource;
+
+public class StatsServiceTest {
+    @Test
+    public void testSalesAmount() {
+        StatsService service = new StatsService();
+
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int expectedSalesAmount = 180;
+        int actualSalesAmount = service.salesAmount(sales);
+
+        Assertions.assertEquals(expectedSalesAmount, actualSalesAmount);
+
+        int expectedAverageAmount = 15;
+        int actualAverageAmount = service.averageAmount(sales);
+
+        Assertions.assertEquals(expectedAverageAmount, actualAverageAmount);
+
+        int expectedMaxSales = 8;
+        int actualMaxSales = service.maxSales(sales);
+
+        Assertions.assertEquals(expectedMaxSales, actualMaxSales);
+
+        int expectedMinSales = 9;
+        int actualMinSales = service.minSales(sales);
+
+        Assertions.assertEquals(expectedMinSales, actualMinSales);
+
+        int expectedNumberBelowAverageSales = 5;
+        int actualNumberBelowAverageSales = service.numberBelowAverageSales(sales);
+
+        Assertions.assertEquals(expectedNumberBelowAverageSales, actualNumberBelowAverageSales);
+
+        int expectedNumberAboveAverageSales = 5;
+        int actualNumberAboveAverageSales = service.numberAboveAverageSales (sales);
+
+        Assertions.assertEquals(expectedNumberAboveAverageSales, actualNumberAboveAverageSales);
+    }
+}
