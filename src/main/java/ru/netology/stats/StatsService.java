@@ -53,9 +53,10 @@ public class StatsService {
     // 5. Рассчитаем количество месяцев, в которых продажи были ниже среднего
     public int numberBelowAverageSales(long[] sales) {
         int belowAvgCount = 0;
+        int averageSum = averageAmount(sales);
 
         for (long num : sales) {
-            if (num < averageAmount(sales)) {
+            if (num < averageSum) {
                 belowAvgCount++;
             }
         }
@@ -65,9 +66,10 @@ public class StatsService {
     // 6. Рассчитаем количество месяцев, в которых продажи были выше среднего
     public int numberAboveAverageSales(long[] sales) {
         int aboveAvgCount = 0;
+        int averageSum = averageAmount(sales);
 
         for (long num : sales) {
-            if (num > averageAmount(sales)) {
+            if (num > averageSum) {
                 aboveAvgCount++;
             }
         }
